@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Página de Arte y Dibujos">
+    <meta name="keywords" content="Arte, Dibujos, Pinturas, Galería">
+    <meta name="author" content="Josué Israel Medina Vargas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shade's Art Gallery</title>
+    <link rel="icon" href="Peque.ico" type="image/x-icon">
+    <link rel="stylesheet" href="Shade's Art Gallery.css"/>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('https://shadesartplace.wordpress.com/wp-content/uploads/2024/06/shade1.jpg');
+            background-size: cover; /* Cubrir toda la página */
+            background-position: center; /* Centrar la imagen */
+            font-family: 'Arial', sans-serif;
+            color: #e0e0e0; /* Color de texto claro */
+            margin: 0;
+            scroll-behavior: smooth; /* Desplazamiento suave */
+            overflow-x: hidden; /* Evitar el desbordamiento horizontal */
+        }
+
+        header {
+            background-color: rgba(68, 68, 68, 0.8); /* Fondo de encabezado semi-transparente */
+            padding: 20px;
+            text-align: center;
+            font-size: 35px;
+            color: #ffffff; /* Color de texto en encabezado */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+
+        header:hover {
+            background-color: rgba(68, 68, 68, 1); /* Fondo de encabezado al pasar el mouse */
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgba(85, 85, 85, 0.8); /* Fondo de menú oscuro semi-transparente */
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: #e0e0e0; /* Color de texto claro */
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+        }
+
+        li a:hover {
+            background-color: rgba(102, 102, 102, 0.8); /* Fondo de menú al pasar el mouse */
+            transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para el título */
+        }
+
+        h2, h3, h4 {
+            text-align: center;
+            color: #ffffff; /* Color de texto claro */
+            transition: transform 0.3s; /* Transición suave */
+        }
+
+        h2:hover, h3:hover, h4:hover {
+            transform: translateY(-5px); /* Efecto de flotación al pasar el mouse */
+        }
+
+        section {
+            padding: 40px 20px;
+            margin: 20px 0;
+            background-color: rgba(42, 42, 42, 0.9); /* Fondo de sección semi-transparente */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s; /* Transición suave */
+            opacity: 0; /* Comienza oculto */
+            transform: translateY(20px); /* Desplazamiento inicial */
+            animation: fadeIn 0.6s forwards; /* Animación de entrada */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section.visible {
+            opacity: 1; /* Hacer visible */
+            transform: translateY(0); /* Volver a la posición original */
+        }
+
+        p {
+            border: 2px solid #666; /* Borde gris oscuro */
+            padding: 20px;
+            margin: 20px 0;
+            background-color: rgba(42, 42, 42, 0.8); /* Fondo de párrafo oscuro */
+            border-radius: 5px;
+        }
+
+        .artwork {
+            transition: transform 0.3s; /* Transición suave para zoom */
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .artwork:hover {
+            transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+        }
+
+        footer {
+            background-color: rgba(68, 68, 68, 0.8); /* Fondo de pie de página semi-transparente */
+            padding: 10px;
+            text-align: center;
+            color: #ffffff; /* Color de texto en pie de página */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+
+        footer:hover {
+            background-color: rgba(68, 68, 68, 1); /* Fondo de pie de página al pasar el mouse */
+        }
+
+        .menu {
+            float: left;
+            width: 20%;
+            text-align: center;
+            background-color: rgba(42, 42, 42, 0.9); /* Fondo de menú lateral */
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .main {
+            float: left;
+            width: 60%;
+            padding: 20px;
+        }
+
+        @media only screen and (max-width: 620px) {
+            .menu, .main {
+                width: 100%;
+                float: none;
+            }
+        }
+
+        /* Estilos para el carrusel */
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel img {
+            width: 100%;
+            display: none; /* Ocultar imágenes por defecto */
+        }
+
+        .carousel img.active {
+            display: block; /* Mostrar solo la imagen activa */
+        }
+
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .carousel button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .carousel button.prev {
+            left: 10px;
+        }
+
+        .carousel button.next {
+            right: 10px;
+        }
+
+        /* Estilos para el formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input, form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #666;
+            border-radius: 5px;
+            background-color: #444;
+            color: #ffffff;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #555;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #666;
+        }
+
+        /* Estilos para la sección de videos */
+        .video-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .video {
+            width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .video iframe {
+            width: 100%;
+            height: 200px;
+        }
+
+        /* Estilos para la sección del blog */
+        .blog-post {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(42, 42, 42, 0.9);
+            border-radius: 10px;
+        }
+
+        /* Estilos para la sección de redes sociales */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <ul>
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#gallery">Galería</a></li>
+        <li><a href="#about">Sobre Nosotros</a></li>
+        <li><a href="#contact">Contacto</a></li>
+        <li><a href="#shop">Tienda</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#collaborations">Colaboraciones</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#social">Redes Sociales</a></li>
+    </ul>
+    <h1>Shade's Art Gallery</h1>
+</header>
+
+<div class="menu">
+    <a href="#">Dibujos</a>
+    <a href="#">Pinturas</a>
+    <a href="#">Esculturas</a>
+    <a href="#">Fotografía</a>
+</div>
+
+<div class="main">
+    <section id="gallery" class="fade-in-section">
+        <article>
+            <h2>Galería de Arte</h2>
+            <p>Explora nuestra colección de obras de arte, desde dibujos hasta esculturas.</p>
+            <div class="carousel">
+                <img src="Lobos.jpeg" alt="Obra de Arte 1" class="artwork active">
+                <img src="King.jpg" alt="Obra de Arte 2" class="artwork">
+                <img src="Emperador.jpg" alt="Obra de Arte 3" class="artwork">
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+        </article>
+    </section>
+
+    <section id="new-universe" class="fade-in-section">
+        <div class="wp-block-cover aligncenter alignfull has-aspect-ratio" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40);aspect-ratio:2/3;min-height:unset;">
+            <span aria-hidden="true" class="wp-block-cover__background has-background-dim-70 has-background-dim" style="background-color:#010101;"></span>
+            <img loading="lazy" width="640" height="640" class="wp-block-cover__image-background wp-image-20" alt="Nuevo universo de arte" src="https://shadesartplace.wordpress.com/wp-content/uploads/2024/06/shade1.jpg" style="object-position:50% 50%;" data-object-fit="cover" data-object-position="50% 50%;" />
+            <div class="wp-block-cover__inner-container has-global-padding is-layout-constrained wp-container-core-cover-is-layout-2 wp-block-cover-is-layout-constrained">
+                <div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+                <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+                    <h2 class="wp-block-heading has-text-align-center has-text-color has-link-color has-xx-large-font-size" style="color:#fefefe;">Un nuevo universo de dibujos, bocetos e ilustraciones.</h2>
+                    <p class="has-text-align-center has-text-color has-link-color" style="color:#fefefe;">Una nueva visión, un nuevo universo por explorar. Sumérgete en una página de ilustraciones furry.</p>
+                    <div style="height:var(--wp--preset--spacing--10)" aria-hidden="true" class="wp-block-spacer"></div>
+                    <div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-1 wp-block-buttons-is-layout-flex"></div>
+                </div>
+                <div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="fade-in-section">
+        <h2>Tienda</h2>
+        <p>Precios de nuestros servicios:</p>
+        <button onclick="toggleShopDetails()">Ver detalles</button>
+        <div class="shop-details">
+            <ul>
+                <li>Lineart: $25.00</li>
+                <li>Boceto: $50.00</li>
+                <li>Iluminado Simple: $75.00</li>
+                <li>Dibujo Detallado: $150.00</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="videos" class="fade-in-section">
+        <h2>Galería de Videos</h2>
+        <div class="video-gallery">
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/video1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/video2" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/video3" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="fade-in-section">
+        <h2>Blog de Arte</h2>
+        <div class="blog-post">
+            <h3>Últimas Tendencias en Arte</h3>
+            <p>Explora las tendencias más recientes en el mundo del arte y cómo influyen en la cultura actual.</p>
+        </div>
+        <div class="blog-post">
+            <h3>Entrevista con un Artista Local</h3>
+            <p>Conoce a un artista de la comunidad y su proceso creativo único.</p>
+        </div>
+    </section>
+
+    <section id="collaborations" class="fade-in-section">
+        <h2>Colaboraciones</h2>
+        <p>Estamos abiertos a colaboraciones con otros artistas y organizaciones. ¡Contáctanos para más información!</p>
+    </section>
+
+    <section id="faq" class="fade-in-section">
+        <h2>Preguntas Frecuentes</h2>
+        <ul>
+            <li><strong>¿Qué tipo de arte ofrecen?</strong> Ofrecemos dibujos, pinturas, esculturas y fotografía.</li>
+            <li><strong>¿Realizan envíos a otras ciudades?</strong> Sí, realizamos envíos a nivel nacional.</li>
+            <li><strong>¿Puedo personalizar un pedido?</strong> Claro, contáctanos para discutir tus ideas.</li>
+        </ul>
+    </section>
+
+    <section id="testimonials" class="fade-in-section">
+        <h2>Testimonios</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial active">
+                <blockquote>
+                    "Una experiencia maravillosa, ¡definitivamente volveré!" - <em>Juan Pérez</em>
+                </blockquote>
+            </div>
+            <div class="testimonial">
+                <blockquote>
+                    "Las obras son impresionantes y el ambiente es acogedor." - <em>María López</em>
+                </blockquote>
+            </div>
+            <div class="testimonial">
+                <blockquote>
+                    "Un lugar lleno de inspiración y creatividad." - <em>Pedro Gómez</em>
+                </blockquote>
+            </div>
+            <button class="prev" onclick="changeTestimonial(-1)">&#10094;</button>
+            <button class="next" onclick="changeTestimonial(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in-section">
+        <h2>Contacto</h2>
+        <form onsubmit="submitForm(event)">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" required>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" required>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <section id="social" class="fade-in-section">
+        <h2>Redes Sociales</h2>
+        <div class="social-links">
+            <a href="https://www.facebook.com/tu-perfil" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/tu-perfil" target="_blank">Instagram</a>
+            <a href="https://www.twitter.com/tu-perfil" target="_blank">Twitter</a>
+            <a href="https://www.tiktok.com/@tu-perfil" target="_blank">TikTok</a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2025 Shade's Art Gallery. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    // Carrusel de imágenes
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let         slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1; }
+        slides[slideIndex - 1].classList.add("active");
+        setTimeout(showSlides, 3000); // Cambia la imagen cada 3 segundos
+    }
+
+    function changeSlide(n) {
+        slideIndex += n;
+        if (slideIndex > document.getElementsByClassName("artwork").length) { slideIndex = 1; }
+        if (slideIndex < 1) { slideIndex = document.getElementsByClassName("artwork").length; }
+        showSlides();
+    }
+
+    // Testimonios
+    let testimonialIndex = 0;
+    showTestimonials();
+
+    function showTestimonials() {
+        let testimonials = document.getElementsByClassName("testimonial");
+        for (let i = 0; i < testimonials.length; i++) {
+            testimonials[i].classList.remove("active");
+        }
+        testimonialIndex++;
+        if (testimonialIndex > testimonials.length) { testimonialIndex = 1; }
+        testimonials[testimonialIndex - 1].classList.add("active");
+        setTimeout(showTestimonials, 5000); // Cambia el testimonio cada 5 segundos
+    }
+
+    function changeTestimonial(n) {
+        testimonialIndex += n;
+        if (testimonialIndex > document.getElementsByClassName("testimonial").length) { testimonialIndex = 1; }
+        if (testimonialIndex < 1) { testimonialIndex = document.getElementsByClassName("testimonial").length; }
+        showTestimonials();
+    }
+
+    // Función para enviar el formulario
+    function submitForm(event) {
+        event.preventDefault();
+        alert("Formulario enviado. ¡Gracias por contactarnos!");
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    }
+
+    // Mostrar/ocultar detalles de la tienda
+    function toggleShopDetails() {
+        const details = document.querySelector('.shop-details');
+        details.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
