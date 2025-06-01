@@ -2,11 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tienda - Shade's Art Gallery</title>
-  <link rel="icon" href="Peque.ico" type="image/x-icon">
-  <link rel="stylesheet" href="estilostienda.css">
-
+  <link rel="icon" href="Peque.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="estilostienda.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -14,29 +13,24 @@
       margin: 0;
       padding: 0;
     }
-
     header {
-      background-color: #007BFF;
+      background-color: #007bff;
       color: white;
       padding: 20px;
       text-align: center;
     }
-
     nav ul {
       list-style-type: none;
       padding: 0;
     }
-
     nav ul li {
       display: inline;
       margin: 0 15px;
     }
-
     nav ul li a {
       color: white;
       text-decoration: none;
     }
-
     main {
       max-width: 800px;
       margin: 20px auto;
@@ -45,46 +39,40 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-
-    h2, h3 {
+    h2,
+    h3 {
       color: #333;
     }
-
     .producto {
       margin-bottom: 20px;
       text-align: center;
     }
-
     .producto img {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
     }
-
     button {
       padding: 10px 20px;
-      background-color: #007BFF;
+      background-color: #007bff;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
     }
-
     button:hover {
       background-color: #0056b3;
     }
-
     footer {
       text-align: center;
       padding: 10px;
-      background-color: #007BFF;
+      background-color: #007bff;
       color: white;
       position: relative;
       bottom: 0;
       width: 100%;
     }
-
     .model-container {
       width: 300px;
       height: 300px;
@@ -95,11 +83,10 @@
     }
   </style>
 
-  <!-- Scripts necesarios para Three.js y GLTFLoader -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+  <!-- ✅ Versión que sí permite usar GLTFLoader como constructor -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
-
 <body>
   <header>
     <h1>Shade's Art Gallery</h1>
@@ -122,17 +109,17 @@
     <section>
       <h3>Dibujo Digital</h3>
       <div class="producto">
-        <img src="ShadeLine.jpg" alt="Line Art">
+        <img src="ShadeLine.jpg" alt="Line Art" />
         <h4>Line Art</h4>
         <p>Precio: $25.00</p>
       </div>
       <div class="producto">
-        <img src="Shade2.jpg" alt="Dibujo Plano">
+        <img src="Shade2.jpg" alt="Dibujo Plano" />
         <h4>Dibujo Plano</h4>
         <p>Precio: $65.00</p>
       </div>
       <div class="producto">
-        <img src="Shade4.jpg" alt="Dibujo Detallado">
+        <img src="Shade4.jpg" alt="Dibujo Detallado" />
         <h4>Dibujo Detallado</h4>
         <p>Precio: $100.00</p>
       </div>
@@ -154,7 +141,12 @@
 
     <section>
       <h3>Compra Ahora</h3>
-      <p>Cuenta Bancaria: XXXXXXXXXXXXX<br>Nombre: ****e *****l ******a ****s<br>Referencia: 0123456789<br>Concepto: Dibujo (poner de qué estilo.)</p>
+      <p>
+        Cuenta Bancaria: XXXXXXXXXXXXX<br />
+        Nombre: ****e *****l ******a ****s<br />
+        Referencia: 0123456789<br />
+        Concepto: Dibujo (poner de qué estilo.)
+      </p>
       <button>Compra ahora</button>
     </section>
   </main>
@@ -163,12 +155,12 @@
     <p>Todos los derechos reservados. © 2024 Shade's Art Gallery.</p>
   </footer>
 
-  <!-- Script de carga de modelos -->
+  <!-- ✅ Script que ahora sí funciona -->
   <script>
     function initModel(containerId, modelPath) {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setSize(300, 300);
       document.getElementById(containerId).appendChild(renderer.domElement);
 
@@ -183,12 +175,14 @@
           gltf.scene.rotation.y += 0.01;
           renderer.render(scene, camera);
         }
+
         animate();
       }, undefined, function (error) {
-        console.error(error);
+        console.error('Error al cargar el modelo:', error);
       });
     }
 
+    // Inicializar modelos
     initModel('model1', 'tripo_convert_37fd9c60-c7f9-4f1f-9d41-63b3cacbf3dc.glb');
     initModel('model2', 'tripo_convert_33fd74eb-da40-468e-b0d7-9f6e216d4d41.glb');
   </script>
