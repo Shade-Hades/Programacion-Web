@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('https://shadesartplace.wordpress.com/wp-content/uploads/2024/06/shade1.jpg');
+    background-size: cover; /* Cubrir toda la página */
+    background-position: center; /* Centrar la imagen */
+    font-family: 'Arial', sans-serif;
+    color: #e0e0e0; /* Color de texto claro */
+    margin: 0;
+    scroll-behavior: smooth; /* Desplazamiento suave */
+    overflow-x: hidden; /* Evitar el desbordamiento horizontal */
+}
+
+header {
+    background-color: rgba(68, 68, 68, 0.8); /* Fondo de encabezado semi-transparente */
+    padding: 20px;
+    text-align: center;
+    font-size: 35px;
+    color: #ffffff; /* Color de texto en encabezado */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+header:hover {
+    background-color: rgba(68, 68, 68, 1); /* Fondo de encabezado al pasar el mouse */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(85, 85, 85, 0.8); /* Fondo de menú oscuro semi-transparente */
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: #e0e0e0; /* Color de texto claro */
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+nav li a:hover {
+    background-color: rgba(102, 102, 102, 0.8); /* Fondo de menú al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para el título */
+}
+
+h2, h3, h4 {
+    text-align: center;
+    color: #ffffff; /* Color de texto claro */
+    transition: transform 0.3s; /* Transición suave */
+}
+
+h2:hover, h3:hover, h4:hover {
+    transform: translateY(-5px); /* Efecto de flotación al pasar el mouse */
+}
+
+main {
+    max-width: 800px; /* Ancho máximo */
+    margin: 20px auto; /* Centrar el contenido */
+    padding: 20px;
+    background-color: rgba(42, 42, 42, 0.9); /* Fondo de contenido semi-transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Sombra */
+}
+
+section {
+    padding: 40px 20px;
+    margin: 20px 0;
+    background-color: rgba(42, 42, 42, 0.9); /* Fondo de sección semi-transparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.producto {
+    margin-bottom: 20px; /* Espacio entre productos */
+    text-align: center; /* Centrar texto */
+}
+
+.producto img {
+    max-width: 100%; /* Imagen responsiva */
+    height: auto; /* Mantener proporciones */
+    border-radius: 8px; /* Bordes redondeados para imágenes */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF; /* Color de fondo azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
+footer {
+    background-color: rgba(68, 68, 68, 0.8); /* Fondo de pie de página semi-transparente */
+    padding: 10px;
+    text-align: center;
+    color: #ffffff; /* Color de texto en pie de página */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+footer:hover {
+    background-color: rgba(68, 68, 68, 1); /* Fondo de pie de página al pasar el mouse */
+}
