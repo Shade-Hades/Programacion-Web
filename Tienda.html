@@ -1,197 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda - Shade's Art Gallery</title>
-    <link rel="icon" href="Peque.ico" type="image/x-icon">
-    <link rel="stylesheet" href="estilostienda.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4; /* Fondo claro */
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda - Shade's Art Gallery</title>
+  <link rel="icon" href="Peque.ico" type="image/x-icon">
+  <link rel="stylesheet" href="estilostienda.css">
 
-        header {
-            background-color: #007BFF; /* Color de fondo del encabezado */
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-        nav ul {
-            list-style-type: none; /* Quitar viñetas */
-            padding: 0;
-        }
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-        nav ul li {
-            display: inline; /* Mostrar elementos en línea */
-            margin: 0 15px; /* Espaciado entre enlaces */
-        }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-        nav ul li a {
-            color: white; /* Color de los enlaces */
-            text-decoration: none; /* Quitar subrayado */
-        }
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
 
-        main {
-            max-width: 800px; /* Ancho máximo */
-            margin: 20px auto; /* Centrar el contenido */
-            padding: 20px;
-            background-color: white; /* Fondo blanco para el contenido */
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
-        }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
 
-        h2, h3 {
-            color: #333; /* Color de los encabezados */
-        }
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .producto {
-            margin-bottom: 20px; /* Espacio entre productos */
-            text-align: center; /* Centrar texto */
-        }
+    h2, h3 {
+      color: #333;
+    }
 
-        .producto img {
-            max-width: 100%; /* Imagen responsiva */
-            height: auto; /* Mantener proporciones */
-            border-radius: 8px; /* Bordes redondeados para imágenes */
-        }
+    .producto {
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-        button {
-            padding: 10px 20px;
-            background-color: #007BFF; /* Color de fondo azul */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .producto img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
 
-        button:hover {
-            background-color: #0056b3; /* Color más oscuro al pasar el mouse */
-        }
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #007BFF; /* Color de fondo del pie de página */
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+    button:hover {
+      background-color: #0056b3;
+    }
 
-        .model-container {
-            width: 300px; /* Ancho del contenedor */
-            height: 300px; /* Altura del contenedor */
-            margin: 0 auto; /* Centrar el contenedor */
-            border: 1px solid #ccc; /* Borde del contenedor */
-            border-radius: 8px; /* Bordes redondeados */
-            background-color: #f0f0f0; /* Fondo del contenedor */
-        }
-    </style>
-	<script type="module">
-	  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
-	  import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
-	</script>
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .model-container {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f0f0f0;
+    }
+  </style>
+
+  <!-- Scripts necesarios para Three.js y GLTFLoader -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
 </head>
+
 <body>
-    <header>
-        <h1>Shade's Art Gallery</h1>
-        <nav>
-            <ul>
-                <li><a href="https://shadesartplace.wordpress.com/acerca-de/">Acerca de</a></li>
-                <li><a href="https://shadesartplace.wordpress.com/contacto/">Contacto</a></li>
-                <li><a href="https://shadesartplace.wordpress.com/galeria/">Galería</a></li>
-                <li><a href="https://shadesartplace.wordpress.com/tienda/">Tienda</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>Shade's Art Gallery</h1>
+    <nav>
+      <ul>
+        <li><a href="https://shadesartplace.wordpress.com/acerca-de/">Acerca de</a></li>
+        <li><a href="https://shadesartplace.wordpress.com/contacto/">Contacto</a></li>
+        <li><a href="https://shadesartplace.wordpress.com/galeria/">Galería</a></li>
+        <li><a href="https://shadesartplace.wordpress.com/tienda/">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section>
-            <h2>Tienda</h2>
-            <p>Ofrecemos una amplia gama de estilos, desde lineart y bocetos simples hasta dibujos detallados con iluminación. Podemos capturar la esencia de los personajes furry en cada dibujo. Explora nuestra tienda y sumérgete en el maravilloso mundo de los dibujos furry.</p>
-        </section>
+  <main>
+    <section>
+      <h2>Tienda</h2>
+      <p>Ofrecemos una amplia gama de estilos, desde lineart y bocetos simples hasta dibujos detallados con iluminación. Podemos capturar la esencia de los personajes furry en cada dibujo. Explora nuestra tienda y sumérgete en el maravilloso mundo de los dibujos furry.</p>
+    </section>
 
-        <section>
-            <h3>Dibujo Digital</h3>
-            <div class="producto">
-                <img src="ShadeLine.jpg" alt="Line Art">
-                <h4>Line Art</h4>
-                <p>Precio: $25.00</p>
-            </div>
-            <div class="producto">
-                <img src="Shade2.jpg" alt="Dibujo Plano">
-                <h4>Dibujo Plano</h4>
-                <p>Precio: $65.00</p>
-            </div>
-            <div class="producto">
-                <img src="Shade4.jpg" alt="Dibujo Detallado">
-                <h4>Dibujo Detallado</h4>
-                <p>Precio: $100.00</p>
-            </div>
-        </section>
+    <section>
+      <h3>Dibujo Digital</h3>
+      <div class="producto">
+        <img src="ShadeLine.jpg" alt="Line Art">
+        <h4>Line Art</h4>
+        <p>Precio: $25.00</p>
+      </div>
+      <div class="producto">
+        <img src="Shade2.jpg" alt="Dibujo Plano">
+        <h4>Dibujo Plano</h4>
+        <p>Precio: $65.00</p>
+      </div>
+      <div class="producto">
+        <img src="Shade4.jpg" alt="Dibujo Detallado">
+        <h4>Dibujo Detallado</h4>
+        <p>Precio: $100.00</p>
+      </div>
+    </section>
 
-        <section>
-            <h3>Modelo 3D</h3>
-            <div class="producto">
-                <h4>Modelos Planos</h4>
-                <div id="model1" class="model-container"></div>
-                <p>Precio: $200.00</p>
-            </div>
-            <div class="producto">
-                <h4>Renderizados</h4>
-                <div id="model2" class="model-container"></div>
-                <p>Precio: $400.00</p>
-            </div>
-        </section>
+    <section>
+      <h3>Modelo 3D</h3>
+      <div class="producto">
+        <h4>Modelos Planos</h4>
+        <div id="model1" class="model-container"></div>
+        <p>Precio: $200.00</p>
+      </div>
+      <div class="producto">
+        <h4>Renderizados</h4>
+        <div id="model2" class="model-container"></div>
+        <p>Precio: $400.00</p>
+      </div>
+    </section>
 
-        <section>
-            <h3>Compra Ahora</h3>
-            <p>Cuenta Bancaria: XXXXXXXXXXXXX<br>Nombre: ****e *****l ******a ****s<br>Referencia: 0123456789<br>Concepto: Dibujo (poner de qué estilo.)</p>
-            <button>Compra ahora</button>
-        </section>
-    </main>
+    <section>
+      <h3>Compra Ahora</h3>
+      <p>Cuenta Bancaria: XXXXXXXXXXXXX<br>Nombre: ****e *****l ******a ****s<br>Referencia: 0123456789<br>Concepto: Dibujo (poner de qué estilo.)</p>
+      <button>Compra ahora</button>
+    </section>
+  </main>
 
-    <footer>
-        <p>Todos los derechos reservados. © 2024 Shade's Art Gallery.</p>
-    </footer>
+  <footer>
+    <p>Todos los derechos reservados. © 2024 Shade's Art Gallery.</p>
+  </footer>
 
+  <!-- Script de carga de modelos -->
+  <script>
+    function initModel(containerId, modelPath) {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(300, 300);
+      document.getElementById(containerId).appendChild(renderer.domElement);
 
-   <script>
-		// Función para inicializar el modelo 3D
-		function initModel(containerId, modelPath) {
-			const scene = new THREE.Scene();
-			const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-			const renderer = new THREE.WebGLRenderer({ antialias: true });
-			renderer.setSize(300, 300); // Tamaño del renderizado
-			document.getElementById(containerId).appendChild(renderer.domElement);
+      const loader = new THREE.GLTFLoader();
+      loader.load(modelPath, function (gltf) {
+        scene.add(gltf.scene);
+        gltf.scene.position.set(0, -1, 0);
+        camera.position.z = 5;
 
-			const loader = new THREE.GLTFLoader(); // Asegúrate de que esto esté aquí
-			loader.load(modelPath, function (gltf) {
-				scene.add(gltf.scene);
-				gltf.scene.position.set(0, -1, 0); // Ajustar la posición del modelo
-				camera.position.z = 5;
+        function animate() {
+          requestAnimationFrame(animate);
+          gltf.scene.rotation.y += 0.01;
+          renderer.render(scene, camera);
+        }
+        animate();
+      }, undefined, function (error) {
+        console.error(error);
+      });
+    }
 
-				const animate = function () {
-					requestAnimationFrame(animate);
-					gltf.scene.rotation.y += 0.01; // Rotar el modelo
-					renderer.render(scene, camera);
-				};
-				animate();
-			}, undefined, function (error) {
-				console.error(error);
-			});
-		}
-
-		// Inicializar los modelos
-		initModel('model1', 'tripo_convert_37fd9c60-c7f9-4f1f-9d41-63b3cacbf3dc.glb'); // Ruta relativa
-		initModel('model2', 'tripo_convert_33fd74eb-da40-468e-b0d7-9f6e216d4d41.glb'); // Ruta relativa
-	</script>
-
+    initModel('model1', 'tripo_convert_37fd9c60-c7f9-4f1f-9d41-63b3cacbf3dc.glb');
+    initModel('model2', 'tripo_convert_33fd74eb-da40-468e-b0d7-9f6e216d4d41.glb');
+  </script>
 </body>
 </html>
