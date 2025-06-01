@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda - Shade's Art Gallery</title>
     <link rel="icon" href="Peque.ico" type="image/x-icon">
-    <link rel="stylesheet" href="Shade's Art Gallery.css"/>
     <link rel="stylesheet" href="estilostienda.css">
     <style>
         body {
@@ -94,7 +93,7 @@
             background-color: #f0f0f0; /* Fondo del contenedor */
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/GLTFLoader.js"></script>
 </head>
 <body>
@@ -160,35 +159,37 @@
         <p>Todos los derechos reservados. © 2024 Shade's Art Gallery.</p>
     </footer>
 
-    <script>
-        // Función para inicializar el modelo 3D
-        function initModel(containerId, modelPath) {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(300, 300); // Tamaño del renderizado
-            document.getElementById(containerId).appendChild(renderer.domElement);
 
-            const loader = new THREE.GLTFLoader();
-            loader.load(modelPath, function (gltf) {
-                scene.add(gltf.scene);
-                gltf.scene.position.set(0, -1, 0); // Ajustar la posición del modelo
-                camera.position.z = 5;
+   <script>
+		// Función para inicializar el modelo 3D
+		function initModel(containerId, modelPath) {
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+			const renderer = new THREE.WebGLRenderer({ antialias: true });
+			renderer.setSize(300, 300); // Tamaño del renderizado
+			document.getElementById(containerId).appendChild(renderer.domElement);
 
-                const animate = function () {
-                    requestAnimationFrame(animate);
-                    gltf.scene.rotation.y += 0.01; // Rotar el modelo
-                    renderer.render(scene, camera);
-                };
-                animate();
-            }, undefined, function (error) {
-                console.error(error);
-            });
-        }
+			const loader = new THREE.GLTFLoader(); // Asegúrate de que esto esté aquí
+			loader.load(modelPath, function (gltf) {
+				scene.add(gltf.scene);
+				gltf.scene.position.set(0, -1, 0); // Ajustar la posición del modelo
+				camera.position.z = 5;
 
-        // Inicializar los modelos
-			initModel('model1', 'tripo_convert_37fd9c60-c7f9-4f1f-9d41-63b3cacbf3dc.glb'); // Ruta relativa
-			initModel('model2', 'tripo_convert_33fd74eb-da40-468e-b0d7-9f6e216d4d41.glb'); // Ruta relativa
-    </script>
+				const animate = function () {
+					requestAnimationFrame(animate);
+					gltf.scene.rotation.y += 0.01; // Rotar el modelo
+					renderer.render(scene, camera);
+				};
+				animate();
+			}, undefined, function (error) {
+				console.error(error);
+			});
+		}
+
+		// Inicializar los modelos
+		initModel('model1', 'tripo_convert_37fd9c60-c7f9-4f1f-9d41-63b3cacbf3dc.glb'); // Ruta relativa
+		initModel('model2', 'tripo_convert_33fd74eb-da40-468e-b0d7-9f6e216d4d41.glb'); // Ruta relativa
+	</script>
+
 </body>
 </html>
