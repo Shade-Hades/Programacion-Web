@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('https://shadesartplace.wordpress.com/wp-content/uploads/2024/06/shade1.jpg');
+    background-size: cover; /* Cubrir toda la página */
+    background-position: center; /* Centrar la imagen */
+    font-family: 'Arial', sans-serif;
+    color: #e0e0e0; /* Color de texto claro */
+    margin: 0;
+    scroll-behavior: smooth; /* Desplazamiento suave */
+    overflow-x: hidden; /* Evitar el desbordamiento horizontal */
+}
+
+header {
+    background-color: rgba(68, 68, 68, 0.8); /* Fondo de encabezado semi-transparente */
+    padding: 20px;
+    text-align: center;
+    font-size: 35px;
+    color: #ffffff; /* Color de texto en encabezado */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+header:hover {
+    background-color: rgba(68, 68, 68, 1); /* Fondo de encabezado al pasar el mouse */
+}
+
+section {
+    padding: 40px 20px;
+    margin: 20px auto; /* Centrar la sección */
+    background-color: rgba(42, 42, 42, 0.9); /* Fondo de sección semi-transparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    max-width: 800px; /* Ancho máximo para la sección */
+    text-align: center; /* Centrar texto dentro de la sección */
+}
+
+footer {
+    background-color: rgba(68, 68, 68, 0.8); /* Fondo de pie de página semi-transparente */
+    padding: 10px;
+    text-align: center;
+    color: #ffffff; /* Color de texto en pie de página */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+footer:hover {
+    background-color: rgba(68, 68, 68, 1); /* Fondo de pie de página al pasar el mouse */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    margin: 20px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input, form textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #444;
+    color: #ffffff;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #555;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #666;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.contact-item img {
+    margin-right: 10px;
+}
