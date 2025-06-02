@@ -26,6 +26,32 @@ header:hover {
     background-color: rgba(68, 68, 68, 1); /* Fondo de encabezado al pasar el mouse */
 }
 
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(85, 85, 85, 0.8); /* Fondo de menú oscuro semi-transparente */
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: #e0e0e0; /* Color de texto claro */
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+nav li a:hover {
+    background-color: rgba(102, 102, 102, 0.8); /* Fondo de menú al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
 section {
     padding: 40px 20px;
     margin: 20px auto; /* Centrar la sección */
