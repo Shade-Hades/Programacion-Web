@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería - Shade's Art Gallery</title>
+  <link rel="icon" href="pequeart.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="estilosgaleria.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('https://shadesartplace.wordpress.com/wp-content/uploads/2024/06/shade1.jpg');
+      background-size: cover; /* Cubrir toda la página */
+      background-position: center; /* Centrar la imagen */
+      font-family: 'Arial', sans-serif;
+      color: #e0e0e0; /* Color de texto claro */
+      margin: 0;
+      scroll-behavior: smooth; /* Desplazamiento suave */
+      overflow-x: hidden; /* Evitar el desbordamiento horizontal */
+    }
+
+    header {
+      background-color: rgba(68, 68, 68, 0.8); /* Fondo de encabezado semi-transparente */
+      padding: 20px;
+      text-align: center;
+      font-size: 35px;
+      color: #ffffff; /* Color de texto en encabezado */
+      transition: background-color 0.3s; /* Transición suave */
+    }
+
+    header:hover {
+      background-color: rgba(68, 68, 68, 1); /* Fondo de encabezado al pasar el mouse */
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: rgba(85, 85, 85, 0.8); /* Fondo de menú oscuro semi-transparente */
+    }
+
+    nav li {
+      float: left;
+    }
+
+    nav li a {
+      display: block;
+      color: #e0e0e0; /* Color de texto claro */
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+    }
+
+    nav li a:hover {
+      background-color: rgba(102, 102, 102, 0.8); /* Fondo de menú al pasar el mouse */
+      transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para el título */
+    }
+
+    h2, h3, h4 {
+      text-align: center;
+      color: #ffffff; /* Color de texto claro */
+      transition: transform 0.3s; /* Transición suave */
+    }
+
+    h2:hover, h3:hover, h4:hover {
+      transform: translateY(-5px); /* Efecto de flotación al pasar el mouse */
+    }
+
+    main {
+      max-width: 1200px; /* Ancho máximo */
+      margin: 20px auto; /* Centrar el contenido */
+      padding: 20px;
+      background-color: rgba(42, 42, 42, 0.9); /* Fondo de contenido semi-transparente */
+      border-radius: 10px; /* Bordes redondeados */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Sombra */
+    }
+
+    section {
+      margin: 20px 0;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Cuadrícula responsiva */
+      gap: 20px; /* Espacio entre elementos */
+    }
+
+    .art-piece {
+      background-color: rgba(68, 68, 68, 0.8); /* Fondo de cada pieza de arte */
+      border-radius: 10px; /* Bordes redondeados */
+      padding: 20px;
+      text-align: center; /* Centrar texto */
+      transition: transform 0.3s; /* Transición suave */
+    }
+
+    .art-piece:hover {
+      transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    }
+
+    .art-piece img {
+      width: 100%; /* Ajustar el ancho al 100% del contenedor */
+      height: 200px; /* Altura fija para todas las imágenes */
+      object-fit: cover; /* Mantener proporciones y cubrir el área */
+      border-radius: 8px; /* Bordes redondeados para imágenes */
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF; /* Color de fondo azul */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+    }
+
+    footer {
+      background-color: rgba(68, 68, 68, 0.8); /* Fondo de pie de página semi-transparente */
+      padding: 10px;
+      text-align: center;
+      color: #ffffff; /* Color de texto en pie de página */
+      transition: background-color 0.3s; /* Transición suave */
+    }
+
+    footer:hover {
+      background-color: rgba(68, 68, 68, 1); /* Fondo de pie de página al pasar el mouse */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shade's Art Gallery</h1>
+    <nav>
+      <ul>
+        <li class="flotar"><a href="Galeria.html">Inicio</a></li>
+        <li class="flotar"><a href="https://shadesartplace.wordpress.com/acerca-de/">Acerca de</a></li>
+        <li class="flotar"><a href="Contacto.html">Contacto</a></li>
+        <li class="flotar"><a href="Mosaicos.html">Galería</a></li>
+        <li class="flotar"><a href="Tienda.html">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Galería de Arte</h2>
+      <p>Descubre nuestra colección de obras de arte, donde cada pieza captura la esencia de la creatividad y la pasión. Desde ilustraciones vibrantes hasta esculturas únicas, cada obra cuenta una historia.</p>
+    </section>
+
+    <section>
+      <h3>Arte Digital</h3>
+      <div class="grid-container">
+        <div class="art-piece">
+          <img src="Shade6.png" alt="Shade Detallado" />
+        </div>
+        <div class="art-piece">
+          <img src="Shade10.jpeg" alt="Shade y Rudolf" />
+        </div>
+        <div class="art-piece">
+          <img src="Shade7.png" alt="Shade mirando por la ventana" />
+        </div>
+        <div class="art-piece">
+          <img src="Moonshine.jpg" alt="Pequeño creador Moonshine" />
+        </div>
+        <div class="art-piece">
+          <img src="DShade.jpg" alt="Shade D-Day" />
+        </div>
+        <div class="art-piece">
+          <img src="Wolfgang.jpg" alt="Wolfgang" />
+        </div>
+        <div class="art-piece">
+          <img src="estilo-vida.jpg" alt="Chica Anime Sentada" />
+        </div>
+        <div class="art-piece">
+          <img src="cara-chica-malvada.jpg" alt="Chica Anime Malvada" />
+        </div>
+        <div class="art-piece">
+          <img src="pareja-chico-chica.jpg" alt="Pareja Anime" />
+        </div>
+        <div class="art-piece">
+          <img src="Festividad.jpg" alt="Chica Anime" />
+        </div>
+        <div class="art-piece">
+          <img src="AnimeSorprendida.jpg" alt="Chica Anime Sorprendida" />
+        </div>
+        <div class="art-piece">
+          <img src="Fanart.jpg" alt="Fanart Anime" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Modelos 3D</h3>
+      <div class="grid-container">
+        <div class="art-piece">
+          <div id="model1" class="model-container"></div>
+        </div>
+        <div class="art-piece">
+          <div id="model2" class="model-container"></div>
+        </div>
+        <div class="art-piece">
+          <div id="model3" class="model-container"></div>
+        </div>
+        <div class="art-piece">
+          <div id="model4" class="model-container"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Todos los derechos reservados. © 2024 Shade's Art Gallery.</p>
+  </footer>
+
+  <script>
+    // Código JavaScript para mayor dinamismo
+    document.addEventListener('DOMContentLoaded', function() {
+      const artPieces = document.querySelectorAll('.art-piece img');
+      artPieces.forEach(piece => {
+        piece.addEventListener('click', function() {
+          alert('¡Has hecho clic en la imagen de ' + this.alt + '!');
+        });
+      });
+    });
+  </script>
+  
+  <script src="https://unpkg.com/three@0.137.5/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.137.5/examples/js/loaders/GLTFLoader.js"></script>
+
+  <script>
+    function initModel(containerId, modelPath) {
+      const container = document.getElementById(containerId);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 1000);
+      camera.position.set(0, 0, 5);
+      
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+	  renderer.setSize(270, 270);
+	  container.appendChild(renderer.domElement);
+
+		// Luz ambiental muy brillante
+		const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+		scene.add(ambientLight);
+
+		// Luz direccional potente (simula sol)
+		const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+		directionalLight.position.set(10, 20, 10);
+		scene.add(directionalLight);
+
+		// Luz puntual potente para dar brillos fuertes
+		const pointLight = new THREE.PointLight(0xffffff, 1.5);
+		pointLight.position.set(-10, 10, 10);
+		scene.add(pointLight);
+
+
+      // ✅ GLTFLoader es global en esta versión
+      const loader = new THREE.GLTFLoader();
+      loader.load(modelPath,
+        function (gltf) {
+          scene.add(gltf.scene);
+          gltf.scene.position.set(0, 0, 0);
+          gltf.scene.scale.set(1.8, 1.8, 1.8);
+          camera.position.set(0, 0, 6);
+
+          function animate() {
+            requestAnimationFrame(animate);
+            gltf.scene.rotation.y += 0.01;
+            renderer.render(scene, camera);
+          }
+          animate();
+        },
+        undefined,
+        function (error) {
+          console.error('Error al cargar el modelo:', error);
+        }
+      );
+    }
+
+    initModel('model1', 'tripo_convert_37fd9c60-c7f9-4f1f-9d41-63b3cacbf3dc.glb');
+    initModel('model2', 'tripo_convert_33fd74eb-da40-468e-b0d7-9f6e216d4d41.glb');
+    initModel('model3', 'tripo_convert_anime1.glb');
+    initModel('model4', 'tripo_convert_anime2.glb');
+  </script>
+</body>
+</html>
